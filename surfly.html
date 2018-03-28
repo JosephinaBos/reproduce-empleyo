@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Surfly Gabssa</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/jquery-1.12.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/cobrowsing.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">            
+        <div class="container-fluid">                
+            <div class="form-inline">
+
+            	<!-- LOGO -->
+        		<img src="img/logo_gabssa.png" class="img-rounded" alt="Gabssa" >
+
+        		<!-- URL A PROCESAR -->
+                <div class="form-group">
+                	<label for="urlToProcess">URL: </label>
+                    <input type="text" class="form-control" id="urlToProcess" placeholder="https://www.empleo.gob.mx/" value="https://www.empleo.gob.mx/">
+                </div>
+
+                <!-- PROCESAR URL -->
+                <button id="process" type="submit" class="btn btn-default btn-success">Procesar</button>
+
+				<!-- URL PROCESADA -->
+                <div class="form-group">
+                    <label for="urlToClientProd">URL to Client: </label>
+                    <input type="text" class="form-control span4 input-large" id="urlToClientProd" placeholder="www.gabssa.com.mx/" readonly="true">
+                </div>
+
+                <!-- COPIAR URL -->
+                <button id="copy" type="button" class="btn btn-default" disabled>Copiar</button>
+
+                <!-- INICIAR CO-BROWSING -->
+                <button id="init" type="button" class="btn btn-default" disabled>Iniciar</button>
+
+                <div class="form-group" id="alerta-reinicio"></div>
+            </div>
+        </div>
+    </nav>
+    
+	<!-- CONTENEDOR IFRAME -->
+    <div  class="container" id="dummy"></div>
+
+	<!-- VENTANA MODAL - TEXTO COPIADO -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Confirmación</h4>
+                </div>
+                <div class="modal-body">
+                    <p><b>El texto copiado es el siguiente:</b></p>
+                    <p id="texto-copiado"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- VENTANA MODAL - EMPTY -->
+    <div id="myModalEmpty" class="modal fade">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Error</h4>
+                </div>
+                <div class="modal-body">
+                    <p>El campo de la URL esta vacío.</p>
+                    <p id="texto-copiado"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- VENTANA MODAL - INVALID -->
+    <div id="myModalInvalid" class="modal fade">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Error</h4>
+                </div>
+                <div class="modal-body">
+                    <p>La URL ingresada esta errada.</p>
+                    <p id="texto-copiado"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
